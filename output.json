@@ -1,0 +1,52 @@
+{
+  "dashboard_title": "ITSM Service Delivery Dashboard",
+  "charts": [
+    {
+      "slice_name": "Ticket Volume Trend",
+      "viz_type": "line",
+      "params": {
+        "metrics": ["count"],
+        "granularity_sqla": "inc_sys_created_on",
+        "time_grain_sqla": "P1D",
+        "groupby": [],
+        "time_range": "No filter"
+      }
+    },
+    {
+      "slice_name": "Resolution Time by Category",
+      "viz_type": "bar",
+      "params": {
+        "metrics": ["avg_resolution_time_hrs"],
+        "groupby": ["inc_category"]
+      }
+    },
+    {
+      "slice_name": "Closure Rate by Group",
+      "viz_type": "pie",
+      "params": {
+        "metrics": ["closure_rate"],
+        "groupby": ["inc_assignment_group"]
+      }
+    },
+    {
+      "slice_name": "Open Ticket Backlog",
+      "viz_type": "table",
+      "params": {
+        "metrics": ["count"],
+        "groupby": ["inc_priority"],
+        "adhoc_filters": [
+          {
+            "clause": "WHERE",
+            "expressionType": "SIMPLE",
+            "subject": "inc_state",
+            "operator": "!=",
+            "comparator": "Closed"
+          }
+        ]
+      }
+    }
+  ],
+  "filter_immune_slices": [],
+  "position_json": {},
+  "metadata": {}
+}

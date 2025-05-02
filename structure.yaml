@@ -1,0 +1,15 @@
+my_itsm_dbt_project/
+│
+├── dbt_project.yml
+├── packages.yml
+├── models/
+│   ├── staging/
+│   │   └── stg_cleaned_ticket_data.sql
+│   │
+│   ├── marts/
+│   │   ├── service_metrics/
+│   │   │   ├── avg_resolution_time.sql
+│   │   │   ├── closure_rate_by_group.sql
+│   │   │   └── monthly_ticket_summary.sql
+│
+└── snapshots/
